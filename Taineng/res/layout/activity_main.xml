@@ -1,0 +1,179 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/top_title_height"
+        android:background="@drawable/toptitle_black"
+        >
+        
+        <TextView
+            android:id="@+id/time_txt"
+            android:layout_width="260dp" 
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:textSize="22sp"
+            android:textColor="#ffffff" />
+        
+            
+        <TextView 
+            android:id="@+id/weather_txt"
+            android:layout_width="100dp" 
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+            android:textColor="#ffffff"
+            />
+        
+        
+    </RelativeLayout>
+    <FrameLayout 
+        
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="5"
+        android:paddingTop="35dp"
+        android:paddingBottom="35dp"
+        android:paddingLeft="55dp"
+        android:paddingRight="55dp"
+        android:background="@drawable/bigback"
+        >
+        <!-- android:background="#E4E4E4" -->
+        
+        <LinearLayout
+            android:id="@+id/mainpage_content_llayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            
+            android:background="@drawable/small_back"
+            android:orientation="vertical"
+            >
+            <!--android:background="#8E9BA3"  -->
+            <LinearLayout 
+                android:id="@+id/mainpage_heat_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:background="@drawable/heat_back"
+                >
+                 <include
+                	android:layout_width="fill_parent"
+                	android:layout_height="0dp"
+                	android:layout_weight="1"
+                	layout="@layout/mainpage_item_heat"
+                />
+            <View
+	    		android:layout_width="fill_parent"
+	    		android:layout_height="1dp"
+	    		android:background="@color/lineback"
+	    		/>
+            </LinearLayout>
+           
+             <LinearLayout 
+                android:id="@+id/mainpage_gas_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+                <include
+                	android:layout_width="fill_parent"
+                	android:layout_height="0dp"
+                	android:layout_weight="1"       
+                	layout="@layout/mainpage_item_gas"
+                	/>
+                <View
+	    			android:layout_width="fill_parent"
+	    			android:layout_height="1dp"
+	    			android:background="@color/lineback"
+	    			/>
+            </LinearLayout>
+            
+             <LinearLayout 
+                android:id="@+id/mainpage_water_ll"
+                 android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+                <include
+                	android:layout_width="fill_parent"
+                	android:layout_height="0dp"
+                	android:layout_weight="1"
+                	layout="@layout/mainpage_item_water"
+                />
+            <View
+	    		android:layout_width="fill_parent"
+	    		android:layout_height="1dp"
+	    		android:background="@color/lineback"
+	    		/>
+            </LinearLayout>
+             
+            <LinearLayout
+                android:id="@+id/mainpage_elec_ll"
+                 android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+                <include
+                	android:layout_width="fill_parent"
+               		android:layout_height="0dp"
+                	android:layout_weight="1"
+                	layout="@layout/mainpage_item_elec"
+                />
+            
+            </LinearLayout>
+            
+            
+           
+            
+        </LinearLayout>
+    </FrameLayout>
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@drawable/mainpage_botton"
+        >
+        <ImageButton 
+            android:id="@+id/people_imbt"
+            android:layout_width="@dimen/mainpage_imgbt_wid"
+            android:layout_height="@dimen/mainpage_imgbt_hei" 
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="50dp"
+            android:src="@drawable/mainpage_people_back"
+            android:background="#00000000"
+            />
+        <ImageButton 
+            android:id="@+id/message_imbt"
+            android:layout_width="@dimen/mainpage_imgbt_wid" 
+            android:layout_height="@dimen/mainpage_imgbt_hei"
+            android:layout_toRightOf="@id/people_imbt"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/mainpage_msg_back"
+            android:background="#00000000"
+            />
+        <ImageButton 
+            android:id="@+id/setup_imbt"
+            android:layout_width="@dimen/mainpage_imgbt_wid" 
+            android:layout_height="@dimen/mainpage_imgbt_hei"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="35dp"
+            android:src="@drawable/mainpage_setup_back"
+            android:background="#00000000"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

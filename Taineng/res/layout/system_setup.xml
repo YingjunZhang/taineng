@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <include 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/top_title_height"
+        layout="@layout/top_layout"/>
+    <FrameLayout 
+        
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="1"
+        android:padding="50dp"
+        android:background="@drawable/bigback"
+        >
+        <LinearLayout
+           
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"          
+            android:orientation="horizontal"
+            android:background="@drawable/small_back"
+            >
+            <LinearLayout 
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="fill_parent" 
+                android:background="#80BCBCBC"  
+                android:orientation="vertical"              
+                >
+               <Button 
+                   android:id="@+id/system_scheme_setup_btn"
+                   android:layout_width="fill_parent"
+                   android:layout_height="@dimen/system_setup_leftbtn_height"
+                   android:text="方案设置"
+                   android:textSize="@dimen/system_setup_leftbtn_textsize"
+                   android:background="@color/half_fanbai"
+                   />
+               <Button 
+                   android:id="@+id/system_pifu_setup_btn"
+                   android:layout_width="fill_parent"
+                   android:layout_height="@dimen/system_setup_leftbtn_height" 
+                   android:text="皮肤设置"
+                   android:textSize="@dimen/system_setup_leftbtn_textsize"
+                   android:background="@color/half_system_setup_deephuibai"
+                   />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp" 
+                android:layout_weight="4"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                >
+                
+                <LinearLayout
+                    android:id="@+id/system_setup_scheme_content_ll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    
+                    android:orientation="vertical"
+                    >
+                    
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    
+
+</LinearLayout>

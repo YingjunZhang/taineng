@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+   
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="horizontal">
+        <RelativeLayout 
+        android:layout_width="0dp" 
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        
+        >
+        <ImageView 
+            android:layout_width="@dimen/mainpage_item_imgview_wid"
+            android:layout_height="@dimen/mainpage_item_imgview_hei" 
+            android:src="@drawable/elec"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_alignParentLeft="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        >
+        <TextView 
+            android:id="@+id/elec_xiaohao_txt"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/mainpage_item_txtview_hei"
+            android:textSize="@dimen/mainpage_item_txtsize"
+            
+            android:textColor="@color/mainpage_item_textcolor"
+            android:gravity="center"
+            android:text="40KWh"
+            />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        >
+        <TextView 
+            android:id="@+id/elec_chaobiao_Txt"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/mainpage_item_txtview_hei"
+            android:textSize="@dimen/mainpage_item_txtsize"
+            
+            android:textColor="@color/mainpage_item_textcolor"
+            android:gravity="center"
+            android:text="10KWh"
+            />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="0dp"
+        android:layout_weight="1.5"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        >
+        <TextView 
+            android:id="@+id/elec_now_txt"
+            android:layout_width="fill_parent" 
+            android:layout_height="@dimen/mainpage_item_txtview_hei"
+            android:textSize="@dimen/mainpage_item_txtsize"
+            
+            android:textColor="@color/mainpage_item_textcolor"
+            android:gravity="center"
+            android:text="50KWh"
+            />
+    </RelativeLayout>
+    <RelativeLayout 
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="fill_parent"
+        
+        >
+        <ImageView
+            android:id="@+id/elec_turn_btn"
+            android:layout_width="@dimen/mainpage_item_imgbt_width" 
+            android:layout_height="@dimen/mainpage_item_imgbt_height"
+            android:src="@drawable/turn"
+            android:background="#00ffffff"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+    </LinearLayout>
+	
+    
+	
+</LinearLayout>

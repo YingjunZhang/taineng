@@ -1,0 +1,16 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+   <color name="lineback">#55595c</color> <!-- 抄表记录ListItem分割线颜色 -->
+   <color name="mainpage_lineback">#282828</color>
+   <color name="fanbai">#eaf1ed</color>
+   <color name="weilan">#bee8f7</color>
+   <color name="mainpage_item_textcolor">#6b6c6d</color> <!-- 主页面每行的文本颜色 -->
+   <color name="system_setup_deephuibai">#60686c</color>
+   <color name="half_system_setup_deephuibai">#b060686c</color>
+   <color name="half_fanbai">#b0eaf1ed</color>
+   
+   <!-- 温控阀方案设置页面 -->
+   <color name="heat_wenkong_setup_normal">#b07bc8e8</color>
+   <color name="heat_wenkong_setup_clicked">#b013c3c9</color>
+</resources>

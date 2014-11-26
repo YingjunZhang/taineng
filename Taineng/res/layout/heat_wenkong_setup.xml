@@ -1,0 +1,91 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/top_title_height"
+        android:background="@drawable/toptitle_black"
+        >
+        
+        
+        
+        
+    </RelativeLayout>
+    <FrameLayout 
+        
+        android:layout_width="fill_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="1"
+        android:padding="50dp"
+        android:background="@drawable/bigback"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"          
+            android:orientation="vertical"
+            android:background="@drawable/small_back"
+            >
+            <LinearLayout 
+                android:id="@+id/heat_wenkong_setup_content_ll"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp" 
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                ></LinearLayout>
+            <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="70dp"
+                android:orientation="horizontal"
+                >
+                <Button
+                    android:id="@+id/heat_wenkong_eashmodel_btn"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="简单模式"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:background="@drawable/heat_wenkong_set_btnback"
+                    />
+                
+                <Button
+                    android:id="@+id/heat_wenkong_economicalmodel_btn"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="经济模式"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:background="@drawable/heat_wenkong_set_btnback"
+                    />
+                
+                <Button
+                    android:id="@+id/heat_wenkong_outdoormodel_btn"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="外出模式"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:background="@drawable/heat_wenkong_set_btnback"
+                    />
+                
+                <Button
+                    android:id="@+id/heat_wenkong_holidaymodel_btn"
+                    android:layout_height="fill_parent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="节假模式"
+                    android:gravity="center"
+                    android:textSize="22sp"
+                    android:background="@drawable/heat_wenkong_set_btnback"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+    
+
+</LinearLayout>

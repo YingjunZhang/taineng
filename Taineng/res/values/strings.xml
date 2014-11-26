@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">青岛泰能</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+	<string name="heat_analyse_chaobiao">抄表记录</string>
+	<string name="heat_analyse_setup">设置</string>
+	<string name="heat_setup_easy">简单模式</string>
+	<string name="heat_setup_ecnomic">经济模式</string>
+	<string name="heat_setup_out">外出模式</string>
+	<string name="heat_setup_holiday">节假模式</string>
+</resources>

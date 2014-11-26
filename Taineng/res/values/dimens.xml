@@ -1,0 +1,33 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    
+    <dimen name="top_title_height">60dp</dimen> <!-- 标题栏的高度 -->
+    <dimen name="top_title_imbt_hei">40dp</dimen>
+    <dimen name="top_title_imbt_wid">60dp</dimen>
+    <dimen name ="top_title_txt_width">150dp</dimen>
+    
+    <dimen name="mainpage_imgbt_hei">55dp</dimen> <!-- 主页面下面三个按钮宽度和高度 -->
+    <dimen name="mainpage_imgbt_wid">65dp</dimen> <!-- 主页面下面三个按钮宽度和高度 -->
+    <dimen name="mainpage_listitem_four_height">130dp</dimen> <!-- 热表行的高度 -->
+    <dimen name="heat_chaobiao_jilu_height">90dp</dimen> <!-- 热表抄表记录每行的高度 -->
+    
+    <!-- 主页面每行表显示    start********************** -->
+    <dimen name="mainpage_item_imgview_hei">90dp</dimen>
+     <dimen name="mainpage_item_imgview_wid">100dp</dimen>
+    <dimen name="mainpage_item_txtview_hei">55dp</dimen>
+    <dimen name="mainpage_item_txtsize">30sp</dimen>
+    <dimen name="mainpage_item_imgbt_width">45dp</dimen>
+    <dimen name="mainpage_item_imgbt_height">60dp</dimen>
+    <!-- *****************end********************* -->
+    
+    <!-- ***************系统设置页面*************** -->
+    <dimen name="system_setup_title_txt_width">120dp</dimen>
+    <dimen name="system_setup_leftbtn_textsize">22sp</dimen>
+    <dimen name="system_setup_leftbtn_height">45dp</dimen>
+    <!-- ***************end************************ -->
+    <dimen name="yemian_padding">10dp</dimen>
+    
+</resources>
