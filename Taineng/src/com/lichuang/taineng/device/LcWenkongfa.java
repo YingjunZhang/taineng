@@ -273,7 +273,7 @@ public class LcWenkongfa {
 					for (int i = 14; i < 18; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					tempStr=tempStr+"kwh";
+					tempStr=df_2.format(Integer.parseInt(tempStr) / 100.0)+"kwh";
 					result.put(panal_display_heat, tempStr);
 
 					// 室内温度
