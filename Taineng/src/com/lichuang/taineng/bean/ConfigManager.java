@@ -25,74 +25,7 @@ public class ConfigManager {
 		return configManager;
 	}
 	
-	/**
-	 * 设置热表地址
-	 * @param address
-	 */
-	public void SetHeatAddress(String address){
-		Editor editor = sharedPreference.edit();
-		editor.putString("热表地址", address);
-		editor.commit();
-	}
 	
-	/**
-	 * 读取热表地址
-	 * 
-	 */
-	public void ReadHeatAddress(){
-		MyUtil.rebiao_address=sharedPreference.getString("热表地址", "00000000");
-	}
-	
-	/**
-	 * 设置燃气表地址
-	 * @param address
-	 */
-	public void SetGasAddress(String address){
-		Editor editor = sharedPreference.edit();
-		editor.putString("气表地址", address);
-		editor.commit();
-	}
-	
-	/**
-	 * 读取燃气表地址
-	 */
-	public void ReadGasAddress(){
-		MyUtil.qibiao_address=sharedPreference.getString("气表地址", "00000000");
-	}
-	
-	/**
-	 * 设置水表地址
-	 * @param address
-	 */
-	public void SetWaterAddress(String address){
-		Editor editor = sharedPreference.edit();
-		editor.putString("水表地址", address);
-		editor.commit();
-	}
-	
-	/**
-	 * 读取水表地址
-	 */
-	public void ReadWaterAddress(){
-		MyUtil.shuibiao_address = sharedPreference.getString("水表地址", "00000000");
-	}
-	
-	/**
-	 * 设置电表地址
-	 * @param address
-	 */
-	public void SetElecAddress(String address){
-		Editor editor = sharedPreference.edit();
-		editor.putString("电表地址", address);
-		editor.commit();
-	}
-	
-	/**
-	 * 读取电表地址
-	 */
-	public void ReadElecAddress(){
-		MyUtil.dianbiao_address = sharedPreference.getString("电表地址", "00000000");
-	}
 	
 	/**
 	 * 存储热表采集方案

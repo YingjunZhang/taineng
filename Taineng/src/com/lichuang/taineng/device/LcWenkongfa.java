@@ -124,49 +124,49 @@ public class LcWenkongfa {
 					for (int i = 20; i < 24; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(cueernt_heat, df_2.format(Integer.parseInt(tempStr) / 100.0) + "kWh");
+					result.put(cueernt_heat, df_2.format(Integer.parseInt(tempStr) / 100.0));
 
 					// 热功率
 					tempStr = "";
 					for (int i = 25; i < 29; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(heatP, df_2.format(Integer.parseInt(tempStr) / 100.0) + "kW");
+					result.put(heatP, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 瞬时流量
 					tempStr = "";
 					for (int i = 30; i < 34; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(instanFlow, df_3.format(Integer.parseInt(tempStr) / 10000.0) + "m³/h");
+					result.put(instanFlow, df_3.format(Integer.parseInt(tempStr) / 10000.0) );
 
 					// 累计流量
 					tempStr = "";
 					for (int i = 35; i < 39; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(leijiFlow, df_2.format(Integer.parseInt(tempStr) / 100.0) + "m³");
+					result.put(leijiFlow, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 供水温度
 					tempStr = "";
 					for (int i = 39; i < 42; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(gsTemperature, df_2.format(Integer.parseInt(tempStr) / 100.0) + "℃");
+					result.put(gsTemperature, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 回水温度
 					tempStr = "";
 					for (int i = 42; i < 45; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(hsTemperature, df_2.format(Integer.parseInt(tempStr) / 100.0) + "℃");
+					result.put(hsTemperature, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 累计工作时间
 					tempStr = "";
 					for (int i = 45; i < 48; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(leijiTime, tempStr + "小时");
+					result.put(leijiTime, tempStr);
 
 					// 实时时间
 					tempStr = "";
@@ -273,7 +273,7 @@ public class LcWenkongfa {
 					for (int i = 14; i < 18; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					tempStr=df_2.format(Integer.parseInt(tempStr) / 100.0)+"kwh";
+					tempStr=df_2.format(Integer.parseInt(tempStr) / 100.0);
 					result.put(panal_display_heat, tempStr);
 
 					// 室内温度
@@ -281,14 +281,14 @@ public class LcWenkongfa {
 					for (int i = 18; i < 21; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(temperature_indoor, df_2.format(Integer.parseInt(tempStr) / 100.0) + "℃");
+					result.put(temperature_indoor, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 设定温度
 					tempStr = "";
 					for (int i = 21; i < 24; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(temperature_setted, df_2.format(Integer.parseInt(tempStr) / 100.0) + "℃");
+					result.put(temperature_setted, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 阀门开度
 					tempStr = dataList.get(24);
@@ -299,14 +299,14 @@ public class LcWenkongfa {
 					for (int i = 25; i < 28; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(set_temperature_limit, df_2.format(Integer.parseInt(tempStr) / 100.0) + "℃");
+					result.put(set_temperature_limit, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 温度修正限值
 					tempStr = "";
 					for (int i = 28; i < 31; i++) {
 						tempStr = dataList.get(i) + tempStr;
 					}
-					result.put(temperature_correct_limit, df_2.format(Integer.parseInt(tempStr) / 100.0) + "℃");
+					result.put(temperature_correct_limit, df_2.format(Integer.parseInt(tempStr) / 100.0) );
 
 					// 实时时间
 					tempStr = "";

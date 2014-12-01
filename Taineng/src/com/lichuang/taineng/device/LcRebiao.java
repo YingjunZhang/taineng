@@ -13,7 +13,7 @@ import com.lichuang.taineng.bean.MyLog;
  * Created by holy on 2014/11/6.
  */
 public class LcRebiao {
-    public static String lastHeat="上次超标热量";
+    public static String lastHeat="上次抄表热量";
     public static String nowHeat="当前热量";
     public static String heatP="热功率";
     public static String instanFlow="瞬时流量";
@@ -107,7 +107,7 @@ public class LcRebiao {
                     tempStr = tempList.get(i)+tempStr;
                 }
                 tempValue=Integer.valueOf(tempStr);
-                result.put(lastHeat, df.format(tempValue/100.0)+"KWh");
+                result.put(lastHeat, df.format(tempValue/100.0));
 
                 //读取当前热量
                 tempStr="";
@@ -116,9 +116,9 @@ public class LcRebiao {
                 }
                 tempValue=Integer.valueOf(tempStr);
                 if(tempValue==0){
-                	result.put(nowHeat, "0KWh");
+                	result.put(nowHeat, "0");
                 }else{
-                	result.put(nowHeat, df.format(tempValue/100.0)+"KWh");
+                	result.put(nowHeat, df.format(tempValue/100.0));
                 }
                 
 
@@ -128,7 +128,7 @@ public class LcRebiao {
                     tempStr = tempList.get(i)+tempStr;
                 }
                 tempValue=Integer.valueOf(tempStr);
-                result.put(heatP, df.format(tempValue/100.0)+"KW");
+                result.put(heatP, df.format(tempValue/100.0));
 
                 //读取瞬时流量
                 tempStr="";
@@ -136,7 +136,7 @@ public class LcRebiao {
                     tempStr = tempList.get(i)+tempStr;
                 }
                 tempValue=Integer.valueOf(tempStr);
-                result.put(instanFlow, dfThree.format(tempValue/10000.0)+"m³/h");
+                result.put(instanFlow, dfThree.format(tempValue/10000.0));
 
                 //读取累计流量
                 tempStr="";
@@ -144,7 +144,7 @@ public class LcRebiao {
                     tempStr = tempList.get(i)+tempStr;
                 }
                 tempValue=Integer.valueOf(tempStr);
-                result.put(leijiFlow, df.format(tempValue/100.0)+"m³");
+                result.put(leijiFlow, df.format(tempValue/100.0));
 
                 //读取供水温度
                 tempStr="";
@@ -152,7 +152,7 @@ public class LcRebiao {
                     tempStr = tempList.get(i)+tempStr;
                 }
                 tempValue=Integer.valueOf(tempStr);
-                result.put(gsTemperature, df.format(tempValue/100.0)+"℃");
+                result.put(gsTemperature, df.format(tempValue/100.0));
 
                 //读取回水温度
                 tempStr="";
@@ -160,7 +160,7 @@ public class LcRebiao {
                     tempStr = tempList.get(i)+tempStr;
                 }
                 tempValue=Integer.valueOf(tempStr);
-                result.put(hsTemperature, df.format(tempValue/100.0)+"℃");
+                result.put(hsTemperature, df.format(tempValue/100.0));
 
                 //读取累计工作时间
                 tempStr="";
@@ -169,7 +169,7 @@ public class LcRebiao {
                 }
 
                 tempValue = Integer.valueOf(tempStr);
-                result.put(leijiTime, tempValue+"小时");
+                result.put(leijiTime, String.valueOf(tempValue));
 
                 //读取实时时间
                 tempStr="";

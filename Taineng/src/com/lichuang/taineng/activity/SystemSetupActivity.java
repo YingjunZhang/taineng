@@ -156,7 +156,21 @@ public class SystemSetupActivity extends BaseActivity implements OnClickListener
 	
 	
 	
+	
     
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent();
+		if (isConfigChange){			
+			setResult(MyUtil.scheme_chcode,intent);			
+		}else{
+			setResult(32,intent);
+		}
+		finish();
+		return false;
+	}
+
 	/**
      * 配置文件修改事件
      */
@@ -164,12 +178,7 @@ public class SystemSetupActivity extends BaseActivity implements OnClickListener
 	public void onConfigChanged(int code) {
 		// TODO Auto-generated method stub
 		isConfigChange = true;
-		try {
-			myAIDLService.SendCommand(MyUtil.scheme_chcode);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 

@@ -66,7 +66,7 @@ public class LinkService extends Service {
         super.onCreate();
         MyLog.LogInfo("taineng service", "create.......");
         configManager = ConfigManager.getInstance(getApplicationContext());
-        ReadAddressFile();
+        
         ReadConfigFile();
         comThread = new Thread(new ComRunnalbe(mHandler,getApplicationContext()));
         analyseThread = new Thread(new AnalyseRunnable(getApplicationContext()));
@@ -86,9 +86,17 @@ public class LinkService extends Service {
         super.onDestroy();
         MyLog.LogInfo("taineng service", "destroy");
         mTimer.cancel();
-        DeviceManager.getInstance(getApplicationContext()).setSFlag(false);
-        DeviceManager.getInstance(getApplicationContext()).setAFlag(false);
-        DeviceManager.getInstance(getApplicationContext()).CloseSerialPort();
+        DeviceManager.getInstance(getApplicationContext()).SetSFlag(false);
+        DeviceManager.getInstance(getApplicationContext()).SetAFlag(false);
+        try {
+			Thread.currentThread().sleep(200);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			DeviceManager.getInstance(getApplicationContext()).CloseSerialPort();
+		}
+        
   
         
     }
@@ -151,19 +159,7 @@ public class LinkService extends Service {
         public int SendCommand(int type) throws RemoteException {
             // TODO Auto-generated method stub
         	switch(type){
-        	case MyUtil.scheme_chcode: //当设置页面的方案设定更改后，会发消息通知这边重新读取配置文件
-        		MyLog.LogInfo("taineng service", "收到消息 100007");
-        		mTimer.cancel();
-        		mTimer = null;
-        		ReadConfigFile();
-        		SetTimer();
-        		break;
-        	case MyUtil.address_chcode:
-        		mTimer.cancel();
-        		mTimer = null;
-        		ReadAddressFile();
-        		SetTimer();
-        		break;
+        	
         	case MyUtil.read_wenkongfa: //读温控阀
         		DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.读温控阀);
         		break;
@@ -221,19 +217,19 @@ public class LinkService extends Service {
 			case 1: //秒
 				number = time.second%MyUtil.heat_Caiji_Timespace;
 				if (number == 0){
-					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表, timeStr);
+					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表);
 				}
 				break;
 			case  2: //分
 				number = time.minute%MyUtil.heat_Caiji_Timespace;
 				if (number == 0){
-					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表, timeStr);
+					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表);
 				}
 				break;
 			case 3: //时
 				number = time.hour%MyUtil.heat_Caiji_Timespace;
 				if (number == 0){
-					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表, timeStr);
+					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表);
 				}
 				break;
 			}
@@ -241,13 +237,7 @@ public class LinkService extends Service {
     	
     }
    
-   private void ReadAddressFile(){
-	   configManager.ReadHeatAddress();
-	   configManager.ReadGasAddress();
-	   configManager.ReadWaterAddress();
-	   configManager.ReadElecAddress();
-   }
-    
+  
    private void ReadConfigFile(){
 	  
 	  configManager.ReadHeatConfigFile();

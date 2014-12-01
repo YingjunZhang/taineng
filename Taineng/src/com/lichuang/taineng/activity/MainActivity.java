@@ -147,7 +147,6 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		Intent intent = new Intent(MainActivity.this,LinkService.class);
 		startService(intent);
         bindService(intent, connection, BIND_AUTO_CREATE);
-        ReadAddressFile();
         ReadConfigFile(); //读取配置信息        
         InitView(); //初始化控件
         AddView();  //添加控件
@@ -264,12 +263,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		time_txt.setText(tempStr);
 	}
 	
-	private void ReadAddressFile(){
-		configManager.ReadHeatAddress();
-		configManager.ReadGasAddress();
-		configManager.ReadWaterAddress();
-		configManager.ReadElecAddress();
-	}
+
 	
 	private void ReadConfigFile(){		 
 		 configManager.ReadHeatConfigFile();		 
@@ -347,6 +341,8 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		MyLog.LogInfo("taineng Activity", "destroy");
 		timer.cancel();
 		unbindService(connection);
+		Intent intent = new Intent(MainActivity.this,LinkService.class);
+		stopService(intent);
 		getContentResolver().unregisterContentObserver(myObserver);
 		getContentResolver().unregisterContentObserver(myObserver2);
 	}
@@ -362,6 +358,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		switch(resultCode){
 		case MyUtil.scheme_chcode:
 			Toast.makeText(MainActivity.this , "配置方案已经更改，请重启软件", Toast.LENGTH_SHORT).show();
+			break;
+		case MyUtil.heat_address_chcode:
+			Toast.makeText(MainActivity.this, "热表地址已经更改，请重启软件", Toast.LENGTH_SHORT).show();
 			break;
 		
 		}
@@ -457,7 +456,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		switch(view.getId()){
 		case R.id.mainpage_heat_ll:
 			Intent intent= new Intent(MainActivity.this,HeatAnalyseActivity.class);
-			startActivity(intent);
+			startActivityForResult(intent,10002);
 			break;
 		case R.id.mainpage_elec_ll:
 			break;
@@ -508,6 +507,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	        }, 2000); //
 	  
 	    } else {  
+	    	
 	    	SysApplication.getInstance().exit();
 	    } 
 	}

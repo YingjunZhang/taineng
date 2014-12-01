@@ -59,5 +59,10 @@ public class MyUtil {
     public final static int scheme_chcode = 2001;
     public final static int read_wenkongfa = 3001;
     
+    //串口设置
     public static int comSleepTime = 600;
+    public static int boundRate = 2400;
+    public static int dataBits = 8;
+    public static int stopBits = 1;
+    public static char comParity = 'e';
 }

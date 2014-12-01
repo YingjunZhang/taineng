@@ -6,9 +6,11 @@ import com.lichuang.taineng.R;
 import com.lichuang.taineng.adapter.HeatAnalyseVpAdapter;
 import com.lichuang.taineng.aidl.IMyAidlInterface;
 import com.lichuang.taineng.bean.MyLog;
+import com.lichuang.taineng.bean.MyUtil;
 import com.lichuang.taineng.contentprovider.ProviderMeta;
 import com.lichuang.taineng.fragment.HeatChaobiaoFrag;
 import com.lichuang.taineng.fragment.HeatSetupFrag;
+import com.lichuang.taineng.fragment.HeatSetupFrag.WenkongListener;
 import com.lichuang.taineng.service.LinkService;
 
 import android.annotation.SuppressLint;
@@ -26,7 +28,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.os.RemoteException;
 
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -43,7 +47,7 @@ import android.widget.TextView;
  * @author holy
  *
  */
-public class HeatAnalyseActivity extends BaseActivity implements OnClickListener{
+public class HeatAnalyseActivity extends BaseActivity implements OnClickListener,WenkongListener{
 	
 	private TextView title_txt;
 	private ImageButton home_imbt;
@@ -55,6 +59,8 @@ public class HeatAnalyseActivity extends BaseActivity implements OnClickListener
 	private FragmentManager fragmentManager;
 	private IMyAidlInterface myAIDLService; //aidl通讯接口
 	private WenkongObserver wenkongObserver;
+	
+	private boolean isAddressChange = false;
 	
 	private Handler mHandler = new Handler(){
 
@@ -142,8 +148,13 @@ public class HeatAnalyseActivity extends BaseActivity implements OnClickListener
 		// TODO Auto-generated method stub
 		switch(v.getId()){
 		case R.id.home_btn:
-			Intent intent = new Intent(HeatAnalyseActivity.this,MainActivity.class);
-			startActivity(intent);
+			Intent intent = new Intent();
+			if (isAddressChange){			
+				setResult(MyUtil.heat_address_chcode,intent);			
+			}else{
+				setResult(32,intent);
+			}
+			finish();
 			break;
 		case R.id.analyse_chaobiao_btn:
 			chaobiao_btn.setBackgroundResource(R.drawable.daohangtiao);
@@ -157,6 +168,23 @@ public class HeatAnalyseActivity extends BaseActivity implements OnClickListener
 			break;
 		}
 	}
+	
+	
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// TODO Auto-generated method stub
+		Intent intent = new Intent();
+		if (isAddressChange){			
+			setResult(MyUtil.heat_address_chcode,intent);			
+		}else{
+			setResult(32,intent);
+		}
+		finish();
+		return false;
+	}
+
+
 
 	private class WenkongObserver extends ContentObserver{
 
@@ -169,6 +197,25 @@ public class HeatAnalyseActivity extends BaseActivity implements OnClickListener
 		public void onChange(boolean selfChange) {
 			// TODO Auto-generated method stub
 			super.onChange(selfChange);
+		}
+		
+	}
+
+	@Override
+	public void sendWenkongCmd(int changeCode) {
+		// TODO Auto-generated method stub
+		switch(changeCode){
+		case MyUtil.read_wenkongfa:
+			try {
+				myAIDLService.SendCommand(MyUtil.read_wenkongfa);
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			break;
+		case MyUtil.heat_address_chcode:
+			isAddressChange= true;
+			break;
 		}
 		
 	}
