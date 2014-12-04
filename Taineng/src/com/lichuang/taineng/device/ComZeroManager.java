@@ -111,7 +111,7 @@ public class ComZeroManager {
 	 * 发送采热表数据命令
 	 * @throws InterruptedException
 	 */
-	public void SendReadDataCommand() throws InterruptedException {
+	public Map<String,String> SendReadDataCommand() throws InterruptedException {
 		result.clear();
 		if(connModel != null){
 			switch(connModel){
@@ -126,7 +126,11 @@ public class ComZeroManager {
 							MyLog.LogInfo("taineng send cmd", "开始接收数据");
 		                    byte[] buffer = ReadCom(inputStream);
 		                    Map<String,String> resultMap = lcRebiao.GetData(buffer);
-		                    result.add(resultMap);
+		                    if(resultMap != null){
+		                    	
+		                    	result.add(resultMap);
+		                    }
+		                    
 						} catch (InterruptedException e) {
 								// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -146,8 +150,12 @@ public class ComZeroManager {
 							Thread.currentThread().sleep(comSleepTime);
 							byte[] buffer = ReadCom(inputStream);
 	                    	Map<String,String> resultMap = wenkongfa.analyseTemperatureControlNuifyRespond(buffer);
-	                    	result.add(resultMap);
 	                    	
+	                    	if(resultMap != null){
+	                    		MyLog.LogInfo("taineng comomanager", "结果"+resultMap.toString());
+	                    		result.add(resultMap);
+	                    	}
+	                    	               	
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -158,8 +166,10 @@ public class ComZeroManager {
 				}
 				break;
 			}
+			Map<String,String> result = MultiHeatResult();
+			return result;
 		}
-		
+		return null;
 	}
 	
 	/**
@@ -287,7 +297,7 @@ public class ComZeroManager {
 	 * 将读到的多个热表的数据进行综合并返回结果
 	 * @return
 	 */
-	public Map<String,String> MultiHeatResult(){
+	private Map<String,String> MultiHeatResult(){
 		Map<String,String> resultMap = new HashMap<String,String>();
 		double nowHeat=0;    //当前热量
 		double instanFlow=0; //瞬时流量

@@ -128,5 +128,8 @@ public class HeatSetupFrag extends Fragment implements OnClickListener{
 		public void sendWenkongCmd(int changeCode);
 	}
 
+	private void ReadConfig(){
+		
+	}
 	
 }

@@ -95,6 +95,7 @@ public class LinkService extends Service {
 			e.printStackTrace();
 		}finally{
 			DeviceManager.getInstance(getApplicationContext()).CloseSerialPort();
+			System.exit(0);
 		}
         
   
@@ -217,19 +218,20 @@ public class LinkService extends Service {
 			case 1: //秒
 				number = time.second%MyUtil.heat_Caiji_Timespace;
 				if (number == 0){
-					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表);
+					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表,timeStr);
 				}
 				break;
 			case  2: //分
 				number = time.minute%MyUtil.heat_Caiji_Timespace;
 				if (number == 0){
-					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表);
+					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表,timeStr);
+					MyLog.LogInfo("taineng service", "命令已发送");
 				}
 				break;
 			case 3: //时
 				number = time.hour%MyUtil.heat_Caiji_Timespace;
 				if (number == 0){
-					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表);
+					DeviceManager.getInstance(getApplicationContext()).addCmd(DeviceManager.CmdType.采热表,timeStr);
 				}
 				break;
 			}

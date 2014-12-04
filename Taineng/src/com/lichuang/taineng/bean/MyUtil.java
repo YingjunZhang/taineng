@@ -58,6 +58,7 @@ public class MyUtil {
     public final static int address_chcode= 2000;
     public final static int scheme_chcode = 2001;
     public final static int read_wenkongfa = 3001;
+    public final static int set_wenkongfa = 3002;
     
     //串口设置
     public static int comSleepTime = 600;

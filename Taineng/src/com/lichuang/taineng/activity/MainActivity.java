@@ -334,10 +334,9 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		
 	}
 
-	@Override
-	protected void onDestroy() {
-		// TODO Auto-generated method stub
-		super.onDestroy();
+
+	
+	private void DestroyActivity(){
 		MyLog.LogInfo("taineng Activity", "destroy");
 		timer.cancel();
 		unbindService(connection);
@@ -507,7 +506,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 	        }, 2000); //
 	  
 	    } else {  
-	    	
+	    	DestroyActivity();
 	    	SysApplication.getInstance().exit();
 	    } 
 	}

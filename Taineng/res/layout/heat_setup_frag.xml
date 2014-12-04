@@ -30,7 +30,7 @@
             android:layout_width="300dp" 
             android:layout_height="45dp"
             android:layout_gravity="center_vertical"
-            android:hint="表地址之间用逗号分割,注意用英文字符"
+            android:hint="表地址之间用逗号分隔"
             />
         <Button
             android:id="@+id/heat_setup_address_save_btn"
@@ -50,7 +50,7 @@
        >
        <TextView 
            
-           android:layout_width="350dp"
+           android:layout_width="180dp"
            android:layout_height="match_parent"
            android:textSize="22sp"
            android:gravity="center_vertical|left"
@@ -58,10 +58,10 @@
            />
        <TextView 
            android:id="@+id/heat_setup_wenkong_nowmodel_tv"
-           android:layout_width="100dp"
+           android:layout_width="150dp"
            android:layout_height="match_parent"
            android:textSize="22sp"
-           android:gravity="center_vertical|right"
+           android:gravity="center_vertical|left"
            android:text="简单模式"
            />
        <Button

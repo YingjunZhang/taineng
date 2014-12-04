@@ -40,6 +40,7 @@ public class DeviceManager {
     
     
     private DeviceManager(Context context){
+    	MyLog.LogInfo("taineng deviceManager", "构造函数");
         comdList= new LinkedList<CmdType>();
         cmdTimeList = new LinkedList<String>();
         cmdDataList = new LinkedList<byte[]>();
@@ -130,23 +131,29 @@ public class DeviceManager {
                 switch(ct){
                     
                     case 采热表:
-                    	 String time = cmdTimeList.poll();
-                    	 
-                    	 comZeroManager.SendReadDataCommand();
-                    	 Map<String,String> result = comZeroManager.MultiHeatResult();
-                    	 result.put(LcRebiao.realTime, time);
-                    	 dataList.add(result);
-                    	 typeList.add(ct);
+                    	 String time = cmdTimeList.poll();       	 
+                    	 Map<String,String> result = comZeroManager.SendReadDataCommand();
+                    	 if(result != null){
+                    		 if(result.size()>0){
+                        		 result.put(LcRebiao.realTime, time);
+                            	 typeList.add(ct);
+                            	 dataList.add(result);
+                        	 }
+                    	 }
+                    	              	 
                         break;
                     
                     case 抄热表:
-                    	 String time2 = cmdTimeList.poll();
-                    	 
-                    	 comZeroManager.SendReadDataCommand();
-                    	 Map<String,String> result2 = comZeroManager.MultiHeatResult();
-                    	 result2.put(LcRebiao.realTime, time2); 
-                    	 dataList.add(result2);
-                    	 typeList.add(ct);
+                    	 String time2 = cmdTimeList.poll(); 	             	 
+                    	 Map<String,String> result2 = comZeroManager.SendReadDataCommand();
+                    	 if(result2 != null){
+                    		 if(result2.size()>0){
+                        		 result2.put(LcRebiao.realTime, time2); 
+                            	 typeList.add(ct);
+                            	 dataList.add(result2);
+                        	 }
+                    	 }
+                    		 
                     	break;
                   
                     case 读温控阀:
@@ -175,6 +182,7 @@ public class DeviceManager {
             	case 采热表: //
             		MyLog.LogInfo("taineng analyse", "采热表");
             		Map<String,String> result = dataList.poll();
+            		MyLog.LogInfo("taineng devicemanager", "结果"+result.toString());
     				if(result != null){
     					HeatValue hv = new HeatValue();
     					hv.SetNh(result.get(LcRebiao.nowHeat));

@@ -4,15 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+
 import com.lichuang.taineng.R;
 import com.lichuang.taineng.adapter.MsgAdapter;
+import com.lichuang.taineng.camera.CBCamera;
+import com.lichuang.taineng.camera.Preview;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,7 +38,9 @@ public class LaifangActivity extends BaseActivity implements OnItemClickListener
 	private ImageButton yidu_zhankai_imbt;
 	private ListView yidu_lv;
 	private ImageButton home_imbt;
-	private ImageView people_img;
+	private FrameLayout preview_frame;
+	private Preview preview;
+	
 	
 	private List<String> data1 = new ArrayList<String>();
 	private List<String> data2 = new ArrayList<String>();
@@ -70,12 +77,17 @@ public class LaifangActivity extends BaseActivity implements OnItemClickListener
         weidu_lv.setAdapter(wjAdapter);
         weidu_zhankai_imbt=(ImageButton)findViewById(R.id.weiyue_zhankai_imbt);
 		weidu_zhankai_imbt.setOnClickListener(this);
-        people_img = (ImageView)findViewById(R.id.laifang_touxiang_img);
-        people_img.setImageResource(R.drawable.people4);
+        
         yidu_lv.setOnItemClickListener(this);
         weidu_lv.setOnItemClickListener(this);
         home_imbt=(ImageButton)findViewById(R.id.home_btn);
         home_imbt.setOnClickListener(this);
+        
+        preview_frame=(FrameLayout)findViewById(R.id.laifang_act_preview_fram);
+        CBCamera.instance().setWindowManager((WindowManager)getSystemService(WINDOW_SERVICE));
+		CBCamera.instance().setContentResolver(getContentResolver());
+		preview = new Preview(this);
+		preview_frame.addView(preview);
          
 	}
 
@@ -107,7 +119,7 @@ public class LaifangActivity extends BaseActivity implements OnItemClickListener
         do{
             a = random.nextInt(3);
         }while(a == dataIndex);
-        people_img.setImageResource(pic[a]);
+        
        
         dataIndex = a;
 	
@@ -118,6 +130,7 @@ public class LaifangActivity extends BaseActivity implements OnItemClickListener
 		// TODO Auto-generated method stub
 		switch(v.getId()){
 		case R.id.weiyue_zhankai_imbt:
+			CBCamera.instance().takePicture();
 			if(weidu_lv.getVisibility() == View.GONE){
 				weidu_lv.setVisibility(View.VISIBLE);
 				weidu_zhankai_imbt.setImageResource(R.drawable.down_arrow);
